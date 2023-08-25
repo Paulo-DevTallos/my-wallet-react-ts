@@ -9,8 +9,14 @@ services:
       - .:/usr/home/app
     working_dir: /usr/home/app
     ports:
-      - 3047:3047
+      - 3048:3048
     restart: always
     tty: true
+    networks:
+      - mywallet-network
     environment: 
       - CHOKIDAR_USEPOLLING=true
+
+networks:
+  mywallet-network:
+    driver: bridge
