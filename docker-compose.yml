@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  my-wallet:
+    build: .
+    entrypoint: sh ./.docker/entrypoint.sh
+    container_name: my-wallet
+    volumes: 
+      - .:/usr/home/app
+    working_dir: /usr/home/app
+    ports:
+      - 3047:3047
+    restart: always
+    tty: true
+    environment: 
+      - CHOKIDAR_USEPOLLING=true
